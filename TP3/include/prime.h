@@ -1,7 +1,9 @@
 #ifndef TP3_PRIME_H
 #define TP3_PRIME_H
 
-void traitement(int tube[2], int ni);
+#define OUTPUT_FILE_NAME "nb_premiers.txt"
+
+int traitement(int tube[2], int ni);
 
 void manage_fils(int tube[2]);
 

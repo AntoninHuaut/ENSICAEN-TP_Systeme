@@ -6,10 +6,11 @@
 
 FILE* outputFd;
 
-void traitement(int tube_ecoute[2], int ni) {
+int traitement(int tube_ecoute[2], int ni) {
   int nb;
   int pid;
   int subTube[2];
+  int childExit;
 
   if (ni == -1) {
     exit(EXIT_FAILURE);
@@ -40,30 +41,36 @@ void traitement(int tube_ecoute[2], int ni) {
 
     write(subTube[1], &nb, sizeof(int));
     close(subTube[1]);
-    wait(NULL);
+    wait(&childExit);
+
+    return childExit;
   } else {
     // Fils (subTube : lecture)
     manage_fils(subTube);
   }
+
+  return EXIT_SUCCESS;
 }
 
 void manage_fils(int tube[2]) {
   close(tube[1]);
 
   int ni;
+  int exitStatus = EXIT_SUCCESS;
   read(tube[0], &ni, sizeof(ni));
 
   if (ni != -1) {
     fprintf(outputFd, "%d\n", ni);
     fflush(outputFd);
-    traitement(tube, ni);
+    exitStatus = traitement(tube, ni);
   }
 
   close(tube[0]);
-  exit(EXIT_SUCCESS);
+  exit(exitStatus);
 }
 
 void manage_pere(int tube[2], int n) {
+  int childExit;
   close(tube[0]);
 
   int i;
@@ -73,11 +80,19 @@ void manage_pere(int tube[2], int n) {
 
   i = -1;
   write(tube[1], &i, sizeof(i));
-  wait(NULL);
+  wait(&childExit);
+
+  if (childExit == EXIT_SUCCESS) {
+    printf("Le fichier %s a été généré\n", OUTPUT_FILE_NAME);
+  } else {
+    printf("Une erreur est survenue\n");
+  }
+
+  exit(childExit);
 }
 
 void try_create_output_file() {
-  if ((outputFd = fopen("nb_premiers.txt", "w")) == NULL) {
+  if ((outputFd = fopen(OUTPUT_FILE_NAME, "w")) == NULL) {
     perror("Error fopen");
     exit(EXIT_FAILURE);
   }
