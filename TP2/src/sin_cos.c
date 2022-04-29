@@ -23,7 +23,6 @@ void set_alarm() {
   } else {
     alarm(1);
   }
-  sleep(5);
 }
 
 void sin_handler() {

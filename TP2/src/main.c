@@ -20,7 +20,8 @@ void create_calcul_child(void) {
 
     setup_sin_handler();
     alarm(1);
-    sleep(5);
+    for (;;) {
+    }
   } else {
     // Père
 
@@ -35,7 +36,8 @@ void create_calcul_child(void) {
 
       setup_cos_handler();
       alarm(1);
-      sleep(5);
+      for (;;) {
+      }
     } else {
       // Père
 
