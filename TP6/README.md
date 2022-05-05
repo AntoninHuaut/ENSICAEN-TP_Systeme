@@ -13,4 +13,7 @@ Trois modes disponibles :
 - CameraSupervisor : permet de contrôler la caméra
 - EnvironmentSupervisor : permet de contrôler l'environnement  
 
-Il est possible de lancer plusieurs instances de l'application en même temps pour contrôler plusieurs parties.
+**Il est possible de lancer plusieurs instances de l'application en même temps pour contrôler plusieurs parties.**   
+Pour modifier automatiquement la gravité pour Jupiter ou la Terre, il suffit de se rendre dans le mode environnement.  
+
+Pour la question du TP, je n'ai pas trouvé de manque de fluidité.

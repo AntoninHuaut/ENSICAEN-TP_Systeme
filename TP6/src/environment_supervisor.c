@@ -19,13 +19,19 @@ void environment_compute(Semaphore* panneauConfig,
            params->forceDuVent.x, params->forceDuVent.y, params->forceDuVent.z);
 
     printf(
-        "\nCommandes :\n  g: Gravité\n  m: Masse\n  f: Force du vent"
+        "\nCommandes :\n  j: Jupiter (configure la gravité à 24.796)"
+        "\n  t: Terre (configure la gravité à 9.81)"
+        "\n  g: Gravité\n  m: Masse\n  f: Force du vent"
         "\n  q: Quitter\n\n"
         "Choix: ");
     scanf("%c", &c);
     clean_buffer();
 
-    if (c == 'g') {
+    if (c == 'j') {
+      setRawGravite(panneauConfig, params, 24.796);
+    } else if (c == 't') {
+      setRawGravite(panneauConfig, params, 9.81);
+    } else if (c == 'g') {
       setGravite(panneauConfig, params);
     } else if (c == 'm') {
       setMasse(panneauConfig, params);
