@@ -8,10 +8,10 @@
 #include "../include/utils.h"
 
 void camera_compute(Semaphore* panneauConfig, struct parametres_t* params) {
-  printf("\nCamera Supervisor\n");
   char c = '\0', buffer;
 
   while (c != 'q') {
+    printf("\n\n\nCamera Supervisor\n");
     printf("\nConfiguration actuelle :\n");
     printf("  Distance : %f\n  Theta : %d\n  Phi : %d\n", params->distance,
            params->theta, params->phi);

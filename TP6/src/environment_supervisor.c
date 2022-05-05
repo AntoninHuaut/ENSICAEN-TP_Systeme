@@ -9,10 +9,10 @@
 
 void environment_compute(Semaphore* panneauConfig,
                          struct parametres_t* params) {
-  printf("\nEnvironment Supervisor\n");
   char c = '\0', buffer;
 
   while (c != 'q') {
+    printf("\n\n\nEnvironment Supervisor\n");
     printf("\nConfiguration actuelle :\n");
     printf("  Gravité : %f\n  Masse : %f\n", params->gravite, params->masse);
     printf("  Force du vent :\n    X : %f\n    Y : %f\n    Z : %f\n",
