@@ -4,6 +4,8 @@
 #include "./common.h"
 #include "./posix_semaphore.h"
 
+float randomFloat(float a, float b);
+
 void animation_compute(Semaphore* panneauConfig, struct parametres_t* params);
 
 void setRawDistance(Semaphore* panneauConfig,
