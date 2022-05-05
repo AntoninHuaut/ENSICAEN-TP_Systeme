@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -ansi -pedantic -c
+CFLAGS=-Wall -Wextra -D_REENTRANT -pedantic -c
 LDFLAGS=-lpthread
 INCLUDE_PATH=./include
 SRC_PATH=./src

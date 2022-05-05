@@ -11,7 +11,9 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#define SIZE 1500
+#define NB_THREAD 8
+
+#define SIZE 3000
 #define PRINT 0
 
 typedef struct matrix {
@@ -24,6 +26,16 @@ typedef struct matrix {
 void mono_thread(matrix_t* m1, matrix_t* m2);
 matrix_t* product_matrix(matrix_t* m1, matrix_t* m2);
 double product_case(int r, int c, matrix_t* m1, matrix_t* m2);
+
+typedef struct args_t {
+  int quadrant;
+  matrix_t* m1;
+  matrix_t* m2;
+  matrix_t* answer;
+} args_t;
+
+void* thread_calcul(void* args);
+void multi_thread(matrix_t* m1, matrix_t* m2);
 
 /* Utils matrix functions */
 void print_matrix(matrix_t* m);

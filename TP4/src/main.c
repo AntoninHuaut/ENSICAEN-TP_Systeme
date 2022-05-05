@@ -31,7 +31,7 @@ int main(void) {
   mono_thread(m1, m2);
 
   printf("\n======== Multi Threads ========\n\n");
-  /* TO DO */
+  multi_thread(m1, m2);
 
   free_matrix(m1->matrix);
   free_matrix(m2->matrix);
