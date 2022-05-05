@@ -20,7 +20,7 @@ void compute(Semaphore* panneauConfig, struct fontaine* ft) {
         "\n  f: Fermer vanne\n  q: Quitter\n\n"
         "Choix: ");
     scanf("%c", &c);
-    while ((buffer = getchar()) != '\n' && c != EOF) {
+    while ((buffer = getchar()) != '\n' && buffer != EOF) {
     }
 
     if (c == 'e') {
