@@ -3,6 +3,7 @@
 #include <sys/mman.h>
 #include <sys/shm.h>
 #include <unistd.h>
+#include "../include/animation_supervisor.h"
 #include "../include/camera_supervisor.h"
 #include "../include/common.h"
 #include "../include/environment_supervisor.h"
@@ -33,7 +34,9 @@ int main(void) {
   char c = '\0', buffer;
 
   printf("\nChoisir le programme à lancer :\n");
-  printf("  CameraSupervisor : c\n  EnvironmentSupervisor : e\n\nChoix : ");
+  printf(
+      "  Animation : a\n  CameraSupervisor : c\n  EnvironmentSupervisor : e"
+      "\n\nChoix : ");
   scanf("%c", &c);
   while ((buffer = getchar()) != '\n' && c != EOF) {
   }
@@ -42,6 +45,8 @@ int main(void) {
     camera_compute(panneauConfig, params);
   } else if (c == 'e') {
     environment_compute(panneauConfig, params);
+  } else if (c == 'a') {
+    animation_compute(panneauConfig, params);
   } else {
     printf("Entrée invalide\n");
   }
