@@ -9,7 +9,7 @@ void clean_buffer() {
 }
 
 void setRawDistance(Semaphore* panneauConfig,
-                    struct parametres_t* params,
+                    struct parameters_t* params,
                     float distance) {
   P(panneauConfig);
   params->distance = distance;
@@ -17,43 +17,43 @@ void setRawDistance(Semaphore* panneauConfig,
 }
 
 void setRawTheta(Semaphore* panneauConfig,
-                 struct parametres_t* params,
+                 struct parameters_t* params,
                  int theta) {
   P(panneauConfig);
   params->theta = theta;
   V(panneauConfig);
 }
 
-void setRawPhi(Semaphore* panneauConfig, struct parametres_t* params, int phi) {
+void setRawPhi(Semaphore* panneauConfig, struct parameters_t* params, int phi) {
   P(panneauConfig);
   params->phi = phi;
   V(panneauConfig);
 }
 
 void setRawGravite(Semaphore* panneauConfig,
-                   struct parametres_t* params,
+                   struct parameters_t* params,
                    float gravite) {
   P(panneauConfig);
-  params->gravite = gravite;
+  params->gravity = gravite;
   V(panneauConfig);
 }
 
 void setRawMasse(Semaphore* panneauConfig,
-                 struct parametres_t* params,
+                 struct parameters_t* params,
                  float masse) {
   P(panneauConfig);
-  params->masse = masse;
+  params->mass = masse;
   V(panneauConfig);
 }
 
 void setRawForceDuVent(Semaphore* panneauConfig,
-                       struct parametres_t* params,
+                       struct parameters_t* params,
                        float x,
                        float y,
                        float z) {
   P(panneauConfig);
-  params->forceDuVent.x = x;
-  params->forceDuVent.y = y;
-  params->forceDuVent.z = z;
+  params->forceOfWind.x = x;
+  params->forceOfWind.y = y;
+  params->forceOfWind.z = z;
   V(panneauConfig);
 }

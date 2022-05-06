@@ -6,6 +6,6 @@
 
 float randomFloat(float a, float b);
 
-void animation_compute(Semaphore* panneauConfig, struct parametres_t* params);
+void animation_compute(Semaphore* panneauConfig, struct parameters_t* params);
 
 #endif

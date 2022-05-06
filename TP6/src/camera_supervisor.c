@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include "../include/utils.h"
 
-void camera_compute(Semaphore* panneauConfig, struct parametres_t* params) {
+void camera_compute(Semaphore* panneauConfig, struct parameters_t* params) {
   char c = '\0', buffer;
 
   while (c != 'q') {
@@ -33,7 +33,7 @@ void camera_compute(Semaphore* panneauConfig, struct parametres_t* params) {
   }
 }
 
-void setDistance(Semaphore* panneauConfig, struct parametres_t* params) {
+void setDistance(Semaphore* panneauConfig, struct parameters_t* params) {
   float distance;
   printf("Distance souhaitée : ");
   scanf("%f", &distance);
@@ -44,7 +44,7 @@ void setDistance(Semaphore* panneauConfig, struct parametres_t* params) {
   V(panneauConfig);
 }
 
-void setTheta(Semaphore* panneauConfig, struct parametres_t* params) {
+void setTheta(Semaphore* panneauConfig, struct parameters_t* params) {
   int theta;
   printf("Theta souhaité : ");
   scanf("%d", &theta);
@@ -55,7 +55,7 @@ void setTheta(Semaphore* panneauConfig, struct parametres_t* params) {
   V(panneauConfig);
 }
 
-void setPhi(Semaphore* panneauConfig, struct parametres_t* params) {
+void setPhi(Semaphore* panneauConfig, struct parameters_t* params) {
   int phi;
   printf("Phi souhaité : ");
   scanf("%d", &phi);

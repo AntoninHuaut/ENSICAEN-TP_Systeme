@@ -4,12 +4,12 @@
 #include "./common.h"
 #include "./posix_semaphore.h"
 
-void camera_compute(Semaphore* panneauConfig, struct parametres_t* params);
+void camera_compute(Semaphore* panneauConfig, struct parameters_t* params);
 
-void setDistance(Semaphore* panneauConfig, struct parametres_t* params);
+void setDistance(Semaphore* panneauConfig, struct parameters_t* params);
 
-void setTheta(Semaphore* panneauConfig, struct parametres_t* params);
+void setTheta(Semaphore* panneauConfig, struct parameters_t* params);
 
-void setPhi(Semaphore* panneauConfig, struct parametres_t* params);
+void setPhi(Semaphore* panneauConfig, struct parameters_t* params);
 
 #endif

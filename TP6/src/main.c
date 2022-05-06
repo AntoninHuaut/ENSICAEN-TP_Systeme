@@ -22,9 +22,9 @@ int main(void) {
     exit(EXIT_FAILURE);
   }
 
-  struct parametres_t* params =
+  struct parameters_t* params =
       mmap(NULL, /* adresse du dé but de page à projeter */
-           sizeof(struct parametres_t), /* taille de projection */
+           sizeof(struct parameters_t), /* taille de projection */
            PROT_READ | PROT_WRITE,      /* accès aux pages */
            MAP_SHARED,                  /* type de segment */
            shmd,                        /* descripteur du segment */
@@ -51,7 +51,7 @@ int main(void) {
     printf("Entrée invalide\n");
   }
 
-  munmap(params, sizeof(struct parametres_t));
+  munmap(params, sizeof(struct parameters_t));
   close(shmd);
 
   exit(EXIT_SUCCESS);

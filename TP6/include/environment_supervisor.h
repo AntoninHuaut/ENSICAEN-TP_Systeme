@@ -4,12 +4,12 @@
 #include "./common.h"
 #include "./posix_semaphore.h"
 
-void environment_compute(Semaphore* panneauConfig, struct parametres_t* params);
+void environment_compute(Semaphore* panneauConfig, struct parameters_t* params);
 
-void setGravite(Semaphore* panneauConfig, struct parametres_t* params);
+void setGravite(Semaphore* panneauConfig, struct parameters_t* params);
 
-void setMasse(Semaphore* panneauConfig, struct parametres_t* params);
+void setMasse(Semaphore* panneauConfig, struct parameters_t* params);
 
-void setForceDuVent(Semaphore* panneauConfig, struct parametres_t* params);
+void setForceDuVent(Semaphore* panneauConfig, struct parameters_t* params);
 
 #endif

@@ -8,15 +8,15 @@
 #include "../include/utils.h"
 
 void environment_compute(Semaphore* panneauConfig,
-                         struct parametres_t* params) {
+                         struct parameters_t* params) {
   char c = '\0', buffer;
 
   while (c != 'q') {
     printf("\n\n\nEnvironment Supervisor\n");
     printf("\nConfiguration actuelle :\n");
-    printf("  Gravité : %f\n  Masse : %f\n", params->gravite, params->masse);
+    printf("  Gravité : %f\n  Masse : %f\n", params->gravity, params->mass);
     printf("  Force du vent :\n    X : %f\n    Y : %f\n    Z : %f\n",
-           params->forceDuVent.x, params->forceDuVent.y, params->forceDuVent.z);
+           params->forceOfWind.x, params->forceOfWind.y, params->forceOfWind.z);
 
     printf(
         "\nCommandes :\n  j: Jupiter (configure la gravité à 24.796)"
@@ -41,29 +41,29 @@ void environment_compute(Semaphore* panneauConfig,
   }
 }
 
-void setGravite(Semaphore* panneauConfig, struct parametres_t* params) {
+void setGravite(Semaphore* panneauConfig, struct parameters_t* params) {
   float gravite;
   printf("Gravité souhaitée : ");
   scanf("%f", &gravite);
   clean_buffer();
 
   P(panneauConfig);
-  params->gravite = gravite;
+  params->gravity = gravite;
   V(panneauConfig);
 }
 
-void setMasse(Semaphore* panneauConfig, struct parametres_t* params) {
+void setMasse(Semaphore* panneauConfig, struct parameters_t* params) {
   float masse;
   printf("Masse souhaitée : ");
   scanf("%f", &masse);
   clean_buffer();
 
   P(panneauConfig);
-  params->masse = masse;
+  params->mass = masse;
   V(panneauConfig);
 }
 
-void setForceDuVent(Semaphore* panneauConfig, struct parametres_t* params) {
+void setForceDuVent(Semaphore* panneauConfig, struct parameters_t* params) {
   float x, y, z;
   printf("Force du vent\n");
 
@@ -80,8 +80,8 @@ void setForceDuVent(Semaphore* panneauConfig, struct parametres_t* params) {
   clean_buffer();
 
   P(panneauConfig);
-  params->forceDuVent.x = x;
-  params->forceDuVent.y = y;
-  params->forceDuVent.z = z;
+  params->forceOfWind.x = x;
+  params->forceOfWind.y = y;
+  params->forceOfWind.z = z;
   V(panneauConfig);
 }

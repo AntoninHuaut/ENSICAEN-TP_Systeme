@@ -20,7 +20,7 @@ float randomFloat(float a, float b) {
   return a + r;
 }
 
-void animation_compute(Semaphore* panneauConfig, struct parametres_t* params) {
+void animation_compute(Semaphore* panneauConfig, struct parameters_t* params) {
   srand(time(NULL));
 
   int tick = 0;
@@ -29,11 +29,11 @@ void animation_compute(Semaphore* panneauConfig, struct parametres_t* params) {
     float newDistance = params->distance - DISTANCE_PADDING < 3
                             ? 10
                             : params->distance - DISTANCE_PADDING;
-    float newGravite = params->gravite - GRAVITE_PADDING < 7
+    float newGravite = params->gravity - GRAVITE_PADDING < 7
                            ? 12
-                           : params->gravite - GRAVITE_PADDING;
+                           : params->gravity - GRAVITE_PADDING;
     float newMasse =
-        params->masse - MASSE_PADDING < 0.5 ? 2 : params->masse - MASSE_PADDING;
+        params->mass - MASSE_PADDING < 0.5 ? 2 : params->mass - MASSE_PADDING;
 
     if (tick > 20) {
       int newTheta = params->theta - 1 < 0 ? 360 : params->theta - 1;
