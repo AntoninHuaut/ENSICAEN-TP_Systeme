@@ -25,5 +25,7 @@ void ouvrirVanne(Semaphore* panneauConfig, struct fontaine* ft);
 void fermerVanne(Semaphore* panneauConfig, struct fontaine* ft);
 void eauBoisson(Semaphore* panneauConfig, struct fontaine* ft);
 void grenadineBoisson(Semaphore* panneauConfig, struct fontaine* ft);
+void mentheBoisson(Semaphore* panneauConfig, struct fontaine* ft);
+void orgeatBoisson(Semaphore* panneauConfig, struct fontaine* ft);
 
 #endif

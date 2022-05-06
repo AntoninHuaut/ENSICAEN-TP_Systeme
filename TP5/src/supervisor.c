@@ -16,14 +16,18 @@ void compute(Semaphore* panneauConfig, struct fontaine* ft) {
     printf("\nConfiguration actuelle :\n");
     printf("  Vanne : %s\n  Boisson : %s\n", ft->state, ft->boisson);
     printf(
-        "\nCommandes :\n  e: Eau\n  g: Grenadine\n  o: Ouvrir vanne"
-        "\n  f: Fermer vanne\n  q: Quitter\n\n"
+        "\nCommandes :\n  m: Menthe\n  r: Orgeat\n  e: Eau\n  g: Grenadine"
+        "\n  o: Ouvrir vanne\n  f: Fermer vanne\n  q: Quitter\n\n"
         "Choix: ");
     scanf("%c", &c);
     while ((buffer = getchar()) != '\n' && buffer != EOF) {
     }
 
-    if (c == 'e') {
+    if (c == 'm') {
+      mentheBoisson(panneauConfig, ft);
+    } else if (c == 'r') {
+      orgeatBoisson(panneauConfig, ft);
+    } else if (c == 'e') {
       eauBoisson(panneauConfig, ft);
     } else if (c == 'g') {
       grenadineBoisson(panneauConfig, ft);
@@ -51,6 +55,18 @@ void ouvrirVanne(Semaphore* panneauConfig, struct fontaine* ft) {
 void fermerVanne(Semaphore* panneauConfig, struct fontaine* ft) {
   P(panneauConfig);
   strcpy(ft->state, "fermé");
+  V(panneauConfig);
+}
+
+void mentheBoisson(Semaphore* panneauConfig, struct fontaine* ft) {
+  P(panneauConfig);
+  strcpy(ft->boisson, "menthe");
+  V(panneauConfig);
+}
+
+void orgeatBoisson(Semaphore* panneauConfig, struct fontaine* ft) {
+  P(panneauConfig);
+  strcpy(ft->boisson, "orgeat");
   V(panneauConfig);
 }
 
