@@ -12,6 +12,7 @@
 #define GRAVITE_PADDING 0.001
 #define MASSE_PADDING 0.001
 #define PROBA_VENT_CHANGE 0.1
+#define PROBA_COLOR_CHANGE 10
 
 float randomFloat(float a, float b) {
   float random = ((float)rand()) / (float)RAND_MAX;
@@ -45,6 +46,13 @@ void animation_compute(Semaphore* panneauConfig, struct parameters_t* params) {
       if (rand() % 100 < PROBA_VENT_CHANGE) {
         setRawForceDuVent(panneauConfig, params, randomFloat(-2, 2),
                           randomFloat(-2, 2), randomFloat(-2, 2));
+      }
+
+      if (rand() % 100 < PROBA_COLOR_CHANGE) {
+        setRawColor(panneauConfig, params,
+                    (params->color.r + (rand() % 256)) % 256,
+                    (params->color.g + (rand() % 256)) % 256,
+                    (params->color.b + (rand() % 256)) % 256);
       }
 
       tick = 0;

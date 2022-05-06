@@ -30,4 +30,10 @@ void setRawForceDuVent(Semaphore* panneauConfig,
                        float y,
                        float z);
 
+void setRawColor(Semaphore* panneauConfig,
+                 struct parameters_t* params,
+                 int r,
+                 int g,
+                 int b);
+
 #endif

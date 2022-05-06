@@ -57,3 +57,15 @@ void setRawForceDuVent(Semaphore* panneauConfig,
   params->forceOfWind.z = z;
   V(panneauConfig);
 }
+
+void setRawColor(Semaphore* panneauConfig,
+                 struct parameters_t* params,
+                 int r,
+                 int g,
+                 int b) {
+  P(panneauConfig);
+  params->color.r = r;
+  params->color.g = g;
+  params->color.b = b;
+  V(panneauConfig);
+}

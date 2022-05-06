@@ -12,4 +12,6 @@ void setMasse(Semaphore* panneauConfig, struct parameters_t* params);
 
 void setForceDuVent(Semaphore* panneauConfig, struct parameters_t* params);
 
+void setColor(Semaphore* panneauConfig, struct parameters_t* params);
+
 #endif

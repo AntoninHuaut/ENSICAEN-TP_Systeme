@@ -20,7 +20,7 @@ void environment_compute(Semaphore* panneauConfig,
 
     printf(
         "\nCommandes :\n  j: Jupiter (configure la gravité à 24.796)"
-        "\n  t: Terre (configure la gravité à 9.81)"
+        "\n  t: Terre (configure la gravité à 9.81)\n  c: Couleur"
         "\n  g: Gravité\n  m: Masse\n  f: Force du vent"
         "\n  q: Quitter\n\n"
         "Choix: ");
@@ -37,6 +37,8 @@ void environment_compute(Semaphore* panneauConfig,
       setMasse(panneauConfig, params);
     } else if (c == 'f') {
       setForceDuVent(panneauConfig, params);
+    } else if (c == 'c') {
+      setColor(panneauConfig, params);
     }
   }
 }
@@ -83,5 +85,28 @@ void setForceDuVent(Semaphore* panneauConfig, struct parameters_t* params) {
   params->forceOfWind.x = x;
   params->forceOfWind.y = y;
   params->forceOfWind.z = z;
+  V(panneauConfig);
+}
+
+void setColor(Semaphore* panneauConfig, struct parameters_t* params) {
+  int r, g, b;
+  printf("Couleur\n");
+
+  printf("  R souhaité : ");
+  scanf("%d", &r);
+  clean_buffer();
+
+  printf("  G souhaité : ");
+  scanf("%d", &g);
+  clean_buffer();
+
+  printf("  B souhaité : ");
+  scanf("%d", &b);
+  clean_buffer();
+
+  P(panneauConfig);
+  params->color.r = r;
+  params->color.g = g;
+  params->color.b = b;
   V(panneauConfig);
 }
