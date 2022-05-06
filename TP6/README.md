@@ -16,4 +16,4 @@ Trois modes disponibles :
 **Il est possible de lancer plusieurs instances de l'application en même temps pour contrôler plusieurs parties.**   
 Pour modifier automatiquement la gravité pour Jupiter ou la Terre, il suffit de se rendre dans le mode environnement.  
 
-Pour la question du TP, je n'ai pas trouvé de manque de fluidité.
+On pourrait séparer les paramètres en deux structures comme ça les deux programmes environement et camera ne se bloqueraient plus entre eux.  
